@@ -29,5 +29,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-over-slf4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-simple-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-5.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
