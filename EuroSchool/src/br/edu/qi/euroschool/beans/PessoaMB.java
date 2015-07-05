@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.edu.qi.euroschool.dao.PessoaDao;
+import br.edu.qi.euroschool.dao.AbstractDao;
 import br.edu.qi.euroschool.model.Pessoa;
 
 @ManagedBean
@@ -15,12 +15,12 @@ public class PessoaMB implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@EJB
-	private PessoaDao dao;
+	@EJB(beanName = "PessoaDao")
+	private AbstractDao<Pessoa> dao;
 	
 	public void cadastrar() {
 		Pessoa pessoa = new Pessoa();
-		pessoa.setNome("Teste");
+		pessoa.setNome("Rapaz");
 		dao.insert(pessoa);
 	}
 	
