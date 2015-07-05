@@ -3,6 +3,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+	<ui:define name="titulo">
+		<title>Cadastro de Religiao</title>
+	</ui:define>
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Religiao" style="margin-bottom:10px; width:30%">
@@ -14,5 +17,5 @@
 			<p:commandButton action="#{religiaoMB.salvar}" value="Salvar" />
 			</p:panel>			      
 		</h:form>
-	</ui:define>
+	</ui:define>	
 </ui:composition>

@@ -8,7 +8,10 @@ public class GenericBean {
 		this.dao  = daoResponsavel;
 	}
 	
+	public GenericBean(){		
+	}
+	
 	public void salvar (AbstractModel model){
-		this.dao.salvar(model);
+		System.out.print("Salvou");
 	}
 }

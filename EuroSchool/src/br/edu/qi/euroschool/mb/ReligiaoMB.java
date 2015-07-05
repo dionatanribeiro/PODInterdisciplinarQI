@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.edu.qi.euroschool.beans.ReligiaoBean;
 import br.edu.qi.euroschool.core.WeakMB;
+import br.edu.qi.euroschool.dao.ReligiaoDao;
 import br.edu.qi.euroschool.model.Religiao;
 
 @ManagedBean
