@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import br.edu.qi.euroschool.dao.LoginDao;
+import br.edu.qi.euroschool.util.MBUtils;
 
 @ManagedBean
 @SessionScoped
@@ -52,11 +53,7 @@ public class LoginMB implements Serializable {
 			session.setAttribute("username", user);
 			return "home";
 		} else {
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN,
-							"Usuário ou Senha inválidos, palhaço!",
-							"Porfavor informe o usuário e senha corretos "));
+			MBUtils.buildMessage("messages", "Usuário não encontrado");
 			return "login";
 		}
 	}
@@ -67,4 +64,5 @@ public class LoginMB implements Serializable {
 		session.invalidate();
 		return "login";
 	}
+	
 }
