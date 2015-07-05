@@ -1,20 +1,40 @@
 package br.edu.qi.euroschool.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
-public class Pessoa {
+public class Pessoa extends AbstractEntity implements Serializable{
 
-	@Id
-	private Integer idPessoa;
+	private static final long serialVersionUID = 1L;
 
-	public Integer getIdPessoa() {
-		return idPessoa;
+	private String nome;
+	private Integer cep;
+	private String logradouro;
+
+	public String getNome() {
+		return nome;
 	}
 
-	public void setIdPessoa(Integer idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Integer getCep() {
+		return cep;
+	}
+
+	public void setCep(Integer cep) {
+		this.cep = cep;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 }
