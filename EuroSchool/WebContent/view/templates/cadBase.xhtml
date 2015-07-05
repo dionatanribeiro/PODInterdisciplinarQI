@@ -3,13 +3,17 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"	
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Euro School</title>
-</h:head>
-<h:body>	
-	 <ui:include src="templates/menu.xhtml"/>
+	<title>Cadastro Básico</title>
+</h:head>	
+<h:body>
+	<ui:insert name="menu">
+		<ui:include src="menu.xhtml" />
+	</ui:insert>
+	<ui:insert name="cadastro">
+	</ui:insert>
 </h:body>
 </html>

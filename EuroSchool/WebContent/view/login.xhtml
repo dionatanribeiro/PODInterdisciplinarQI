@@ -7,7 +7,7 @@
 </h:head>
 <h:body>
 	<h:form>
-		<h3>JSF Login Logout</h3>
+		<h3>Login</h3>
 		<h:outputText value="Username" />
 		<h:inputText id="username" value="#{loginMB.user}"></h:inputText>
 		<h:message for="username"></h:message>
@@ -16,8 +16,6 @@
 		<h:outputText value="Password" />
 		<h:inputSecret id="password" value="#{loginMB.pwd}"></h:inputSecret>
 		<h:message for="password"></h:message>
-		<br /><br />
-		
 		<h:commandButton action="#{loginMB.validaUsuario}"
 			value="Login"></h:commandButton>
 	</h:form>

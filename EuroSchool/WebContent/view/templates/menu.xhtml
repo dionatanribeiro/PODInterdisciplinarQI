@@ -1,0 +1,19 @@
+<ui:fragment
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:menubar autoDisplay="false">
+		<p:submenu label="Cadastros">
+			<p:menuitem value="Religião" url="#{request.pathInfo}/view/religiao.xhtml" />
+			<p:menuitem value="Etnia" url="#{request.pathInfo}/view/etnio.xhtml" />
+			<p:menuitem value="Tipo Filiacao" url="#{request.pathInfo}/view/filiacao.xhtml" />
+			<p:menuitem value="Deficiências" url="#{request.pathInfo}/view/deficiencias.xhtml" />
+		</p:submenu>		
+	</p:menubar>
+	<h:form>	
+		<h:commandLink action="#{loginMB.logout}" value="Logout"></h:commandLink>
+	</h:form>		
+</ui:fragment>

@@ -67,4 +67,5 @@ public class LoginMB implements Serializable {
 		session.invalidate();
 		return "login";
 	}
+	
 }

@@ -1,0 +1,21 @@
+<ui:composition template="templates/cadBase.xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+  <ui:define name="cadastro">
+    <h:form>      
+      <h:panelGrid columns="2">
+        <h:outputLabel value="Nome" for="iNome" />
+        <h:inputText value="#{fornecedorMB.fornecedor.nome}" id="iNome" />
+
+        <h:outputLabel value="Cnpj" for="iCnpj" />
+        <h:inputText value="#{fornecedorMB.fornecedor.cnpj}" id="iCnpj" />
+      </h:panelGrid>
+
+      <h:messages showDetail="true" showSummary="true" />
+
+      <h:commandButton action="#{fornecedorMB.doSalvar}" value="Salvar" />
+      <h:commandButton action="#{fornecedorMB.doExcluir}" value="Excluir" />
+    </h:form>
+  </ui:define>
+</ui:composition>
