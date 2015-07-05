@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>login</title>
 </h:head>
 <h:body>
 	<h:form>
-		<h3>Login</h3>
-		<h:outputText value="Username" />
-		<h:inputText id="username" value="#{loginMB.user}"></h:inputText>
-		<h:message for="username"></h:message>
-		<br /><br />
-		
-		<h:outputText value="Password" />
-		<h:inputSecret id="password" value="#{loginMB.pwd}"></h:inputSecret>
-		<h:message for="password"></h:message>
-		<h:commandButton action="#{loginMB.validaUsuario}"
-			value="Login"></h:commandButton>
+		<p:messages id="messages" />
+		<p:fieldset style="width:50px">
+			<h:panelGrid columns="2" cellpadding="5">			
+				<p:outputLabel value="Usuário:" />
+				<p:inputText id="username" value="#{loginMB.user}"></p:inputText>
+				<p:outputLabel value="Senha:" />
+				<p:password id="password" value="#{loginMB.pwd}"></p:password>					
+			</h:panelGrid>
+			<p:commandButton action="#{loginMB.validaUsuario}" value="Login"></p:commandButton>
+		</p:fieldset>
 	</h:form>
 </h:body>
 </html>
