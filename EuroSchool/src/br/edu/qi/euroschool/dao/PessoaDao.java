@@ -1,34 +1,24 @@
 package br.edu.qi.euroschool.dao;
 
+import java.util.List;
+
 import javax.ejb.Local;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.edu.qi.euroschool.model.Pessoa;
 
 @Stateless
 @Local
-public class PessoaDao {
+public class PessoaDao extends TemplateDao<Pessoa> implements AbstractDao<Pessoa>{
 
-	public void insert(Pessoa pessoa) {
-		EntityManagerFactory factory = null;
-		EntityManager manager;
-		
-		try {
-			factory = Persistence.createEntityManagerFactory("pessoa");
-			manager = factory.createEntityManager();
-			manager.getTransaction().begin();    
-			manager.persist(pessoa);
-			manager.getTransaction().commit();  
-		} catch (Exception ex) {
-			System.out.println(ex);
-		} finally {
-			if (factory != null) {
-				factory.close();
-			}
-		}
+	@Override
+	public void insert(Pessoa t) {
+		super.persistEntity(t);
+	}
+
+	@Override
+	public List<Pessoa> selectAll() {
+		return super.listEntity();
 	}
 
 }
