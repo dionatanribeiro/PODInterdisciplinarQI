@@ -4,28 +4,28 @@
      http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-		<persistence-unit name="pessoa" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="EuroSchoolDB" transaction-type="RESOURCE_LOCAL">
 
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
-		<!-- entidade mapeada -->
-		<class>br.edu.qi.euroschool.model.Pessoa</class>
 
 		<properties>
+			<!-- Scan for annotated classes and Hibernate mapping XML files -->
+    		<property name="hibernate.archive.autodetection" value="class, hbm"/>
+		
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/euroschool" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.connection.show_sql" value="true" />
-			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.show_sql" value="true"/>  
-            <property name="hibernate.format_sql" value="true"/>
 
-			<!--  atualiza o banco, gera as tabelas se for preciso -->
-			<property name="hibernate.hbm2ddl.auto" value="update"/>  
-			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
 		</properties>
 	</persistence-unit>
 </persistence>
