@@ -1,9 +1,13 @@
 package br.edu.qi.euroschool.beans;
 
+import javax.ejb.Local;
+import javax.ejb.Stateful;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+@Stateful
+@Local
 public class SessionBean {
 
 	public static HttpSession getSession() {

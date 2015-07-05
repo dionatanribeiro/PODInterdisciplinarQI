@@ -1,4 +1,4 @@
-package br.edu.qi.euroschool.beans;
+package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
 
@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import br.edu.qi.euroschool.beans.SessionBean;
 import br.edu.qi.euroschool.dao.LoginDao;
 import br.edu.qi.euroschool.util.MBUtils;
 

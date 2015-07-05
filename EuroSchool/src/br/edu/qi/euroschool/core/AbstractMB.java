@@ -1,6 +1,8 @@
 package br.edu.qi.euroschool.core;
 
-public abstract class AbstractMB {
+import br.edu.qi.euroschool.interfaces.IManagedBean;
+
+public abstract class AbstractMB implements IManagedBean {
 
 	protected String msg;
 
@@ -11,4 +13,5 @@ public abstract class AbstractMB {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+	
 }
