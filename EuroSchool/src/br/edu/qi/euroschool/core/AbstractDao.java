@@ -1,8 +1,13 @@
 package br.edu.qi.euroschool.core;
 
-public class AbstractDao {
+import java.util.List;
 
-	public void salvar(AbstractModel model){
-		System.out.println("Xupa");
-	}
+import javax.ejb.Local;
+
+@Local
+public interface AbstractDao<T> {
+
+	void insert (T t);
+	List<T> selectAll();
+	
 }

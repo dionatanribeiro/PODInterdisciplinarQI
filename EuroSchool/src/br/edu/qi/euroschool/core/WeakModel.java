@@ -1,7 +1,10 @@
 package br.edu.qi.euroschool.core;
 
+import javax.persistence.MappedSuperclass;
+
 //Classes que possuem apenas a descrição.
-public class WeakModel extends AbstractModel {
+@MappedSuperclass
+public abstract class WeakModel extends AbstractEntity {
 
 	private String descricao;
 	

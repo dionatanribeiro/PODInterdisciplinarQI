@@ -1,4 +1,4 @@
-package br.edu.qi.euroschool.model;
+package br.edu.qi.euroschool.core;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

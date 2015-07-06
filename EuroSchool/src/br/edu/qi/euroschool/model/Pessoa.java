@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 
+import br.edu.qi.euroschool.core.AbstractEntity;
+
 @Entity
 public class Pessoa extends AbstractEntity implements Serializable{
 

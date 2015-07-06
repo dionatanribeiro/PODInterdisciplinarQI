@@ -1,4 +1,4 @@
-package br.edu.qi.euroschool.dao;
+package br.edu.qi.euroschool.core;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
