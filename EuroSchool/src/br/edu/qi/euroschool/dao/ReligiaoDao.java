@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
 
 import br.edu.qi.euroschool.core.AbstractDao;
 import br.edu.qi.euroschool.core.TemplateDao;
-import br.edu.qi.euroschool.model.Religiao;
+import br.edu.qi.euroschool.model.weak.Religiao;
 
 @Stateless
 @Local

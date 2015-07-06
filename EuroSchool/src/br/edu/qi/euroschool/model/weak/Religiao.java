@@ -1,4 +1,4 @@
-package br.edu.qi.euroschool.model;
+package br.edu.qi.euroschool.model.weak;
 
 import javax.persistence.Entity;
 
