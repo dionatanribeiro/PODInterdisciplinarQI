@@ -2,10 +2,8 @@ package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import br.edu.qi.euroschool.beans.SessionBean;
@@ -46,7 +44,6 @@ public class LoginMB implements Serializable {
 		this.user = user;
 	}
 
-	// validate login
 	public String validaUsuario() {
 		boolean valid = LoginDao.validate(user, pwd);
 		if (valid) {
@@ -59,7 +56,6 @@ public class LoginMB implements Serializable {
 		}
 	}
 
-	// logout event, invalidate session
 	public String logout() {
 		HttpSession session = SessionBean.getSession();
 		session.invalidate();
