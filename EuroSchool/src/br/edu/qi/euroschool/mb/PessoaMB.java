@@ -1,4 +1,4 @@
-package br.edu.qi.euroschool.beans;
+package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.edu.qi.euroschool.dao.AbstractDao;
+import br.edu.qi.euroschool.core.AbstractDao;
 import br.edu.qi.euroschool.model.Pessoa;
 
 @ManagedBean

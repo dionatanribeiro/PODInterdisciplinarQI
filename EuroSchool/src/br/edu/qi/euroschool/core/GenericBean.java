@@ -11,7 +11,7 @@ public class GenericBean {
 	public GenericBean(){		
 	}
 	
-	public void salvar (AbstractModel model){
+	public void salvar (AbstractEntity model){
 		System.out.print("Salvou");
 	}
 }
