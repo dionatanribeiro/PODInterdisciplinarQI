@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import br.edu.qi.euroschool.core.WeakModel;
 
+@Entity
 public class Sexo extends WeakModel implements Serializable {
 
 	private static final long serialVersionUID = -4526191311525527806L;
