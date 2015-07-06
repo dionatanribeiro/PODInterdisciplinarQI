@@ -2,6 +2,8 @@ package br.edu.qi.euroschool.model.weak;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
 import br.edu.qi.euroschool.core.WeakModel;
 
 @Entity

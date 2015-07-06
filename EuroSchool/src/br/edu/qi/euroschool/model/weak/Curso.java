@@ -7,13 +7,12 @@ import javax.persistence.Entity;
 import br.edu.qi.euroschool.core.WeakModel;
 
 @Entity
-public class Dia extends WeakModel implements Serializable {
+public class Curso extends WeakModel implements Serializable {
 
-	private static final long serialVersionUID = 7553189164134422925L;
+	private static final long serialVersionUID = 9131807816782780366L;
 
-	public Dia(String descricao) {
+	public Curso(String descricao) {
 		super(descricao);
 	}
-
 
 }
