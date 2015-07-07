@@ -6,8 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import br.edu.qi.euroschool.beans.ReligiaoBean;
-import br.edu.qi.euroschool.core.AbstractDao;
+import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.core.WeakMB;
 import br.edu.qi.euroschool.model.weak.TipoFiliacao;
 
@@ -15,19 +14,15 @@ import br.edu.qi.euroschool.model.weak.TipoFiliacao;
 @ViewScoped
 public class TipoFiliacaoMB extends WeakMB implements Serializable {
 
-//	@EJB
-//	ReligiaoBean bean;
-//
-//	@EJB(beanName = "TipoFiliacaoDao")
-//	AbstractDao<TipoFiliacao> dao;
+	@EJB(beanName = "TipoFiliacaoBean")
+	GenericBean<TipoFiliacao> bean;
 	
 	private static final long serialVersionUID = 8764298144153063175L;
 
 	@Override
 	public String salvar() {
 		validaCampos();		 
-//		bean.salvar(new TipoFiliacao(getDescricao()));
-//		dao.insert(new TipoFiliacao(getDescricao()));
+		bean.salvar(new TipoFiliacao(getDescricao()));
 		return "home";
 	}
 
