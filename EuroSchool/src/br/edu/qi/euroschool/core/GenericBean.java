@@ -1,17 +1,9 @@
 package br.edu.qi.euroschool.core;
 
-public class GenericBean {
+import javax.ejb.Local;
 
-	private AbstractDao dao;
-	
-	public GenericBean (AbstractDao daoResponsavel){
-		this.dao  = daoResponsavel;
-	}
-	
-	public GenericBean(){		
-	}
-	
-	public void salvar (AbstractEntity model){
-		System.out.print("Salvou");
-	}
+@Local
+public interface GenericBean<T> {
+
+	public void salvar(T t);
 }

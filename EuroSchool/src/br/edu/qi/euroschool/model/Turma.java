@@ -1,10 +1,12 @@
 package br.edu.qi.euroschool.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
 
@@ -13,8 +15,15 @@ public class Turma extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 1253115040832120058L;
 	private int capacidade;
-	private DateTime inicio;
-	private DateTime fim;
+
+	@Column(columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date inicio;
+
+	@Column(columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fim;
+
 	private String tema;
 
 	public int getCapacidade() {
@@ -25,19 +34,19 @@ public class Turma extends AbstractEntity implements Serializable {
 		this.capacidade = capacidade;
 	}
 
-	public DateTime getInicio() {
+	public Date getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(DateTime inicio) {
+	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
 
-	public DateTime getFim() {
+	public Date getFim() {
 		return fim;
 	}
 
-	public void setFim(DateTime fim) {
+	public void setFim(Date fim) {
 		this.fim = fim;
 	}
 

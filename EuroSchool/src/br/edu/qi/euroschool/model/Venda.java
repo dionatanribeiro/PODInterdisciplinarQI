@@ -1,10 +1,12 @@
 package br.edu.qi.euroschool.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
 
@@ -12,8 +14,11 @@ import br.edu.qi.euroschool.core.AbstractEntity;
 public class Venda extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 8591680186760210L;
-	
-	private DateTime data;
+
+	@Column(columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data;
+
 	private double valorTotal;
 
 	public double getValorTotal() {
@@ -24,11 +29,12 @@ public class Venda extends AbstractEntity implements Serializable {
 		this.valorTotal = valorTotal;
 	}
 
-	public DateTime getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(DateTime data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
+
 }
