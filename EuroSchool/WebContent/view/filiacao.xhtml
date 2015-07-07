@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Cadastro de Filiação</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Filiação" style="margin-bottom:10px; width:30%">
+				<p:messages id="msg" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="descricao" value="Descrição:" />
+					<p:inputText id="descricao" required="true" value="#{filiacaoMB.descricao}"/>
+					
+					<p:outputLabel for="tipoFiliacao" value="Tipo de Filiacao:" />
+			        <p:selectOneMenu value="#{filiacaoMB.tipoFiliacao}">
+                		<f:selectItems value="#{filiacaoMB.tipoFiliacoes}" var="tf"
+                    		itemLabel="#{tf.descricao}" itemValue="#{tf.id}" />
+            		</p:selectOneMenu>
+				</h:panelGrid>
+			<p:commandButton action="#{filiacaoMB.salvar}" value="Salvar" />
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>
