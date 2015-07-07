@@ -2,21 +2,20 @@
 <ui:composition template="templates/cadBase.xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="titulo">	
-		<title>Cadastro de Religião</title>
+	<ui:define name="titulo">
+		<title>Cadastro de Sexo</title>
 	</ui:define>
 	<ui:define name="cadastro">
 		<h:form>
-			<p:panel id="panel" header="Religião" style="margin-bottom:10px; width:30%">
+			<p:panel id="panel" header="Sexo" style="margin-bottom:10px; width:30%">
 				<p:messages id="msg" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="descricao" value="Descrição:" />
-					<p:inputText id="descricao" required="true" value="#{religiaoMB.descricao}"/>
+					<p:inputText id="descricao" required="true" value="#{sexoMB.descricao}"/>
 				</h:panelGrid>
-			<p:commandButton action="#{religiaoMB.salvar}" value="Salvar" />
+			<p:commandButton action="#{sexoMB.salvar}" value="Salvar" />
 			</p:panel>			      
 		</h:form>
 	</ui:define>	
