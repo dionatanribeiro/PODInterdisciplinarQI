@@ -1,7 +1,6 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -16,33 +15,25 @@ import br.edu.qi.euroschool.model.weak.TipoFiliacao;
 @ViewScoped
 public class FiliacaoMB extends WeakMB implements Serializable {
 
-	//@EJB(beanName = "FiliacaoBean")
-	//GenericBean<Filiacao> bean;
-	
-	private TipoFiliacao tipoFiliacao;
-	
+	@EJB(beanName = "FiliacaoBean")
+	GenericBean<Filiacao> bean;
+
 	private static final long serialVersionUID = 8764298144153063175L;
+
+	private TipoFiliacao tipoFiliacao;
 
 	@Override
 	public String salvar() {
-		validaCampos();		 
-		//bean.salvar(new Filiacao(getDescricao()));
+		validaCampos();
+		bean.salvar(new Filiacao(getDescricao(), getTipoFiliacao()));
 		return "home";
 	}
 
 	@Override
 	public void validaCampos() {
 		if (getDescricao().isEmpty()) {
-			
+
 		}
-	}
-	
-	public ArrayList<Filiacao> getTipoFiliacoes(){
-		ArrayList<Filiacao> lista = new ArrayList<Filiacao>();
-		lista.add(new Filiacao("Teste"));
-		lista.add(new Filiacao("Teste 2"));
-		lista.add(new Filiacao("Teste 3"));
-		return lista;
 	}
 
 	public TipoFiliacao getTipoFiliacao() {

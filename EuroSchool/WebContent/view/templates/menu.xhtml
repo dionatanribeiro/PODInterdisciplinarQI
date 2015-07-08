@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 	<p:menubar autoDisplay="false">
-		<p:submenu label="Cadastros">
+		<p:submenu label="Cadastros Simples">
 			<p:menuitem value="Curso" url="#{request.pathInfo}/view/curso.xhtml" />
 			<p:menuitem value="Deficiência" url="#{request.pathInfo}/view/deficiencia.xhtml" />
 			<p:menuitem value="Dia" url="#{request.pathInfo}/view/dia.xhtml" />
@@ -15,6 +15,11 @@
 			<p:menuitem value="Sexo" url="#{request.pathInfo}/view/sexo.xhtml" />
 			<p:menuitem value="Tipo de Filiação" url="#{request.pathInfo}/view/tipoFiliacao.xhtml" />
 		</p:submenu>	
+		<p:submenu label="Cadastros quase Dificieis.">
+			<p:menuitem value="Filiacao" url="#{request.pathInfo}/view/filiacao.xhtml" />
+			<p:menuitem value="Pessoas Deficiêntes" url="#{request.pathInfo}/view/deficienciaPessoa.xhtml" />
+			<p:menuitem value="Horários" url="#{request.pathInfo}/view/horario.xhtml" />
+		</p:submenu>
 		<f:facet name="options">
 	    <h:form>		
 			<p:commandButton action="#{loginMB.logout}" value="Logout" />			

@@ -1,5 +1,7 @@
 package br.edu.qi.euroschool.beans;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -18,6 +20,11 @@ public class CursoBean implements GenericBean<Curso> {
 	@Override
 	public void salvar(Curso curso) {
 		dao.insert(curso);
+	}
+
+	@Override
+	public List<Curso> selectAll() {
+		return dao.selectAll();
 	}
 
 }

@@ -17,12 +17,12 @@
 					<p:inputText id="descricao" required="true" value="#{filiacaoMB.descricao}"/>
 					
 					<p:outputLabel for="tipoFiliacao" value="Tipo de Filiacao:" />
-			        <p:selectOneMenu value="#{filiacaoMB.tipoFiliacao}">
-                		<f:selectItems value="#{filiacaoMB.tipoFiliacoes}" var="tf"
-                    		itemLabel="#{tf.descricao}" itemValue="#{tf.id}" />
+			        <p:selectOneMenu id="tipoFiliacao" value="#{filiacaoMB.tipoFiliacao}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{tipoFiliacaoMB.listTipoFiliacoes}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}"/>
             		</p:selectOneMenu>
 				</h:panelGrid>
-			<p:commandButton action="#{filiacaoMB.salvar}" value="Salvar" />
+			<p:commandButton action="#{filiacaoMB.salvar}" value="Salvar"/>
 			</p:panel>			      
 		</h:form>
 	</ui:define>	

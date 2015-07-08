@@ -20,7 +20,18 @@ public abstract class AbstractEntity {
 	
 	@Override
 	public String toString() {
-		return String.valueOf(id);
+		return String.format("%s[id=%d]", getClass().getSimpleName(), getId());
 	}
-	
+
+	@Override
+	public boolean equals(Object other) {
+		return (other instanceof AbstractEntity) && (id != null) ? id
+				.equals(((AbstractEntity) other).id) : (other == this);
+	}
+
+	@Override
+	public int hashCode() {
+		return ((id != null) ? (this.getClass().hashCode() + id.hashCode())
+				: super.hashCode());
+	}
 }

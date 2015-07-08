@@ -14,5 +14,8 @@ public class TipoFiliacao extends WeakModel implements Serializable{
 	public TipoFiliacao(String descricao) {
 		super(descricao);
 	}
+	
+	public TipoFiliacao() {
+	}
 
 }

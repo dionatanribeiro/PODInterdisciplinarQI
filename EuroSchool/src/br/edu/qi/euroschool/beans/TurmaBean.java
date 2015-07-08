@@ -1,5 +1,7 @@
 package br.edu.qi.euroschool.beans;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -18,6 +20,11 @@ public class TurmaBean implements GenericBean<Turma> {
 	@Override
 	public void salvar(Turma turma) {
 		dao.insert(turma);
+	}
+
+	@Override
+	public List<Turma> selectAll() {
+		return dao.selectAll();
 	}
 
 }

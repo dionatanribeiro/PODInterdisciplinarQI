@@ -11,4 +11,12 @@ public abstract class WeakMB extends AbstractMB{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	@Override
+	public void validaCampos() {
+		if (this.descricao.isEmpty()){
+			
+		}
+	}	
+	
 }

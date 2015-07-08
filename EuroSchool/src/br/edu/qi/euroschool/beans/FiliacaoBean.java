@@ -1,5 +1,7 @@
 package br.edu.qi.euroschool.beans;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -18,6 +20,11 @@ public class FiliacaoBean implements GenericBean<Filiacao> {
 	@Override
 	public void salvar(Filiacao filiacao) {
 		dao.insert(filiacao);
+	}
+	
+	@Override
+	public List<Filiacao> selectAll() {
+		return dao.selectAll();
 	}
 	
 }

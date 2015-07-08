@@ -1,5 +1,7 @@
 package br.edu.qi.euroschool.beans;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -18,6 +20,11 @@ public class ReligiaoBean implements GenericBean<Religiao>{
 	@Override
 	public void salvar(Religiao religiao) {
 		dao.insert(religiao);
+	}
+
+	@Override
+	public List<Religiao> selectAll() {
+		return dao.selectAll();
 	}
 	
 }

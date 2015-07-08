@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -16,20 +17,18 @@ public class TipoFiliacaoMB extends WeakMB implements Serializable {
 
 	@EJB(beanName = "TipoFiliacaoBean")
 	GenericBean<TipoFiliacao> bean;
-	
+
 	private static final long serialVersionUID = 8764298144153063175L;
 
 	@Override
 	public String salvar() {
-		validaCampos();		 
+		validaCampos();
 		bean.salvar(new TipoFiliacao(getDescricao()));
 		return "home";
 	}
 
-	@Override
-	public void validaCampos() {
-		if (getDescricao().isEmpty()) {
-			
-		}
+	public List<TipoFiliacao> getListTipoFiliacoes() {
+		return bean.selectAll();
 	}
+
 }

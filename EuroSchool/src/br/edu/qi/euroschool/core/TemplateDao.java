@@ -51,7 +51,7 @@ public abstract class TemplateDao<T> {
 
 	private Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[1];
+                .getGenericSuperclass()).getActualTypeArguments()[0];
         return clazz;
     }
 	

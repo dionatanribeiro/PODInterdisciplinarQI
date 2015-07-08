@@ -12,6 +12,9 @@ public abstract class WeakModel extends AbstractEntity {
 		super();
 		this.descricao = descricao;
 	}
+	public WeakModel (){
+		super();
+	}
 
 	public String getDescricao() {
 		return descricao;
