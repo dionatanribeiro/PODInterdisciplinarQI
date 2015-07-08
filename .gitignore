@@ -18,3 +18,4 @@ hs_err_pid*
 #.classpath
 #.settings
 .metadata
+EuroSchool/build/classes/META-INF/persistence.xml
