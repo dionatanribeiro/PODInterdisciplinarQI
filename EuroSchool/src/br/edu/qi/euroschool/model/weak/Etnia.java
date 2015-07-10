@@ -14,6 +14,10 @@ public class Etnia extends WeakModel implements Serializable {
 	public Etnia(String descricao) {
 		super(descricao);
 	}
+	
+	public Etnia(){
+		super();
+	}
 
 
 }

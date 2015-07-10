@@ -14,5 +14,9 @@ public class Curso extends WeakModel implements Serializable {
 	public Curso(String descricao) {
 		super(descricao);
 	}
+	
+	public Curso(){
+		super();
+	}
 
 }

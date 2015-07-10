@@ -30,6 +30,10 @@ public class Aluno extends AbstractEntity implements Serializable{
 		this.formaPagamento = formaPagamento;
 		this.pessoa = pessoa;
 	}
+	
+	public Aluno() {
+		super();
+	}
 
 	public String getFormaPagamento() {
 		return formaPagamento;

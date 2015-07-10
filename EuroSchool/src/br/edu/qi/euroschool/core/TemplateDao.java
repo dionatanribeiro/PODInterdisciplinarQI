@@ -48,6 +48,24 @@ public abstract class TemplateDao<T> {
 		}
 		return null;
 	}
+	
+	@SuppressWarnings("unchecked")
+	protected T findById(Long id) {
+		try {
+			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
+			manager = factory.createEntityManager();
+			Query query = manager.createQuery("select t from " + getTypeClass().getName() + " t where id =" + id);
+			T resultado = (T) query.getResultList().get(0); 
+			return resultado;
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			if (factory != null) {
+				factory.close();
+			}
+		}
+		return null;
+	}
 
 	private Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass()

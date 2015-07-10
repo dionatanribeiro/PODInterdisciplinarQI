@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Cadastro de Pessoa</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Pessoa" style="margin-bottom:10px; width:30%">
+				<p:messages id="msg" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="nome" value="Nome:" />
+					<p:inputText id="nome" required="true" value="#{pessoaMB.nome}"/>
+					
+					<p:outputLabel for="religiao" value="Religiao:" />
+			        <p:selectOneMenu id="religiao" value="#{pessoaMB.religiao}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{religiaoMB.listReligiao}" var="religiao" itemLabel="#{religiao.descricao}" itemValue="#{religiao}"/>
+            		</p:selectOneMenu>
+				</h:panelGrid>
+			<p:commandButton action="#{pessoaMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

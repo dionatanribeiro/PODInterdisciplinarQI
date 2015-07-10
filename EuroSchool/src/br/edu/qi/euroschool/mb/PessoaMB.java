@@ -1,14 +1,16 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.edu.qi.euroschool.core.AbstractDao;
 import br.edu.qi.euroschool.core.AbstractMB;
+import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.model.Pessoa;
+import br.edu.qi.euroschool.model.weak.Religiao;
 
 @ManagedBean
 @SessionScoped
@@ -16,16 +18,13 @@ public class PessoaMB extends AbstractMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@EJB(beanName = "PessoaDao")
-	private AbstractDao<Pessoa> dao;
+	@EJB(beanName = "PessoaBean")
+	GenericBean<Pessoa> bean;
 
 	private String nome;
-
-	public void cadastrar() {
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNome("Rapaz");
-		dao.insert(pessoa);
-	}
+	private String logradouro;
+	private int cep;
+	private Religiao religiao;
 
 	@Override
 	public void validaCampos() {
@@ -36,7 +35,17 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	@Override
 	public String salvar() {
 		// TODO Auto-generated method stub
-		return null;
+		validaCampos();	
+		Pessoa pessoa = new Pessoa();
+		pessoa.setCep(cep);
+		pessoa.setLogradouro(logradouro);
+		pessoa.setReligiao(religiao);
+		bean.salvar(pessoa);
+		return "home";
+	}
+	
+	public List<Pessoa> getListPessoa() {
+		return bean.selectAll();
 	}
 
 	public String getNome() {
@@ -45,6 +54,22 @@ public class PessoaMB extends AbstractMB implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Religiao getReligiao() {
+		return religiao;
+	}
+
+	public void setReligiao(Religiao religiao) {
+		this.religiao = religiao;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 }

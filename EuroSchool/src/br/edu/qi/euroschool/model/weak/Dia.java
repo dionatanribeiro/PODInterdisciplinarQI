@@ -15,5 +15,8 @@ public class Dia extends WeakModel implements Serializable {
 		super(descricao);
 	}
 
+	public Dia(){
+		super();
+	}
 
 }

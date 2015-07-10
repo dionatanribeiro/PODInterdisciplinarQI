@@ -9,10 +9,15 @@ import br.edu.qi.euroschool.core.WeakModel;
 @Entity
 public class Deficiencia extends WeakModel implements Serializable {
 
+	private static final long serialVersionUID = -7551592004440598504L;
+
 	public Deficiencia(String descricao) {
 		super(descricao);
 	}
+	
+	public Deficiencia(){
+		super();
+	}
 
-	private static final long serialVersionUID = 7839482728905987633L;
 
 }

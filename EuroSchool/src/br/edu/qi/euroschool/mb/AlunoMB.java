@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
 import br.edu.qi.euroschool.core.GenericBean;
@@ -20,6 +23,8 @@ public class AlunoMB extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 8764298144153063175L;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "IdPessoa", referencedColumnName = "ID", nullable = false, unique = false)
 	private Pessoa pessoa;
 	private String formaPagamento;
 

@@ -15,5 +15,8 @@ public class Sexo extends WeakModel implements Serializable {
 		super(descricao);
 	}
 
+	public Sexo(){
+		super();
+	}
 
 }

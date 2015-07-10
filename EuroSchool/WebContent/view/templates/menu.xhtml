@@ -20,6 +20,11 @@
 			<p:menuitem value="Pessoas Deficiêntes" url="#{request.pathInfo}/view/deficienciaPessoa.xhtml" />
 			<p:menuitem value="Horários" url="#{request.pathInfo}/view/horario.xhtml" />
 		</p:submenu>
+		<p:submenu label="Pessoas">
+			<p:menuitem value="Pessoa" url="#{request.pathInfo}/view/pessoa.xhtml" />
+			<p:menuitem value="Aluno" url="#{request.pathInfo}/view/aluno.xhtml" />
+			<p:menuitem value="Professor" url="#{request.pathInfo}/view/professor.xhtml" />
+		</p:submenu>
 		<f:facet name="options">
 	    <h:form>		
 			<p:commandButton action="#{loginMB.logout}" value="Logout" />			
