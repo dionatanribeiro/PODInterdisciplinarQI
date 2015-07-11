@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
+import br.edu.qi.euroschool.model.pessoas.Professor;
 import br.edu.qi.euroschool.model.weak.Curso;
 
 @Entity
@@ -34,6 +35,18 @@ public class Turma extends AbstractEntity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cursoId", referencedColumnName = "ID", nullable = false, unique = true)
 	private Curso curso;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "professorId", referencedColumnName = "ID", nullable = false, unique = true)
+	public Professor professor;
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 
 	public int getCapacidade() {
 		return capacidade;
