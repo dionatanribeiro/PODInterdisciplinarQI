@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Matricular Aluno</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Matricula" style="margin-bottom:10px; width:30%">
+				<p:messages id="msg"/>
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="aluno" value="Aluno:" />
+			        <p:selectOneMenu id="aluno" value="#{matriculaMB.aluno}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{alunoMB.listAluno}" var="aluno" itemLabel="#{aluno.pessoa.nome}" itemValue="#{aluno}"/>
+            		</p:selectOneMenu>
+					<p:outputLabel for="turma" value="Turma:" />
+			        <p:selectOneMenu id="turma" value="#{matriculaMB.turma}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{turmaMB.listTurma}" var="turma" itemLabel="#{turma.tema}" itemValue="#{turma}"/>
+            		</p:selectOneMenu>
+            		
+				</h:panelGrid>
+			<p:commandButton action="#{pessoaMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

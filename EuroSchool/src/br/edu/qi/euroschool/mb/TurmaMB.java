@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -24,6 +25,10 @@ public class TurmaMB extends WeakMB implements Serializable{
 		if (getDescricao().isEmpty()) {
 			
 		}
+	}
+	
+	public List<Turma> getListTurma() {
+		return bean.selectAll();
 	}
 
 	@Override

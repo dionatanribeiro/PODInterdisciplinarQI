@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -32,6 +33,10 @@ public class AlunoMB extends AbstractEntity implements Serializable {
 		validaCampos();
 		bean.salvar(new Aluno(getFormaPagamento(), getPessoa()));
 		return "home";
+	}
+	
+	public List<Aluno> getListAluno() {
+		return bean.selectAll();
 	}
 
 	public void validaCampos() {
