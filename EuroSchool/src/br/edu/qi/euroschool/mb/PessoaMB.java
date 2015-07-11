@@ -37,6 +37,7 @@ public class PessoaMB extends AbstractMB implements Serializable {
 		// TODO Auto-generated method stub
 		validaCampos();	
 		Pessoa pessoa = new Pessoa();
+		pessoa.setNome(nome);
 		pessoa.setCep(cep);
 		pessoa.setLogradouro(logradouro);
 		pessoa.setReligiao(religiao);

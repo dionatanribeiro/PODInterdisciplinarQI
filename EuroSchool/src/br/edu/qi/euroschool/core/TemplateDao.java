@@ -56,9 +56,7 @@ public abstract class TemplateDao<T> {
 	@SuppressWarnings("unchecked")
 	protected T findById(Long id) {
 		try {
-			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
-			manager = factory.createEntityManager();
-			Query query = manager.createQuery("select t from " + getTypeClass().getName() + " t where id =" + id);
+			Query query = getEntityManager().createQuery("select t from " + getTypeClass().getName() + " t where id =" + id);
 			T resultado = (T) query.getResultList().get(0); 
 			return resultado;
 		} catch (Exception ex) {
