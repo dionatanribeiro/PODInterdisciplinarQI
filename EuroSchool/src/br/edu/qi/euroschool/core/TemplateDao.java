@@ -14,14 +14,20 @@ public abstract class TemplateDao<T> {
 
 	EntityManagerFactory factory = null;
 	EntityManager manager;
+
+	private EntityManager getEntityManager() {
+		if (factory == null) {
+			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
+			manager = factory.createEntityManager();
+		}
+		return manager;
+	}
 	
 	protected void persistEntity(T t) {
 		try {
-			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
-			manager = factory.createEntityManager();
-			manager.getTransaction().begin();    
-			manager.persist(t);
-			manager.getTransaction().commit();  
+			getEntityManager().getTransaction().begin();    
+			getEntityManager().persist(t);
+			getEntityManager().getTransaction().commit();  
 		} catch (Exception ex) {
 			System.out.println(ex);
 		} finally {
@@ -34,9 +40,7 @@ public abstract class TemplateDao<T> {
 	@SuppressWarnings("unchecked")
 	protected List<T> listEntity() {
 		try {
-			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
-			manager = factory.createEntityManager();
-			Query query = manager.createQuery("select t from " + getTypeClass().getName() + " t");
+			Query query = getEntityManager().createQuery("select t from " + getTypeClass().getName() + " t");
 			List<T> listaResultado = query.getResultList(); 
 			return listaResultado;
 		} catch (Exception ex) {
@@ -72,5 +76,9 @@ public abstract class TemplateDao<T> {
                 .getGenericSuperclass()).getActualTypeArguments()[0];
         return clazz;
     }
+	
+	public static void main(String[] args) {
+		EntityManagerFactory teste = Persistence.createEntityManagerFactory("EuroSchoolDB");
+	}
 	
 }
