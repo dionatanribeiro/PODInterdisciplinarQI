@@ -10,14 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.edu.qi.euroschool.core.AbstractEntity;
+import br.edu.qi.euroschool.core.AbstractMB;
 import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.model.Pessoa;
 import br.edu.qi.euroschool.model.pessoas.Aluno;
 
 @ManagedBean
 @ViewScoped
-public class AlunoMB extends AbstractEntity implements Serializable {
+public class AlunoMB extends AbstractMB implements Serializable {
 
 	@EJB(beanName = "AlunoBean")
 	GenericBean<Aluno> bean;

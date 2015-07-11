@@ -23,9 +23,8 @@
                 		<f:selectItem itemLabel="Selecione..." itemValue="" />
                 		<f:selectItems value="#{turmaMB.listTurma}" var="turma" itemLabel="#{turma.tema}" itemValue="#{turma}"/>
             		</p:selectOneMenu>
-            		
 				</h:panelGrid>
-			<p:commandButton action="#{pessoaMB.salvar}" value="Salvar"/>
+			<p:commandButton action="#{matriculaMB.salvar}" value="Salvar"/>
 			</p:panel>			      
 		</h:form>
 	</ui:define>	
