@@ -11,5 +11,18 @@
 </h:head>
 <h:body>	
 	 <ui:include src="templates/menu.xhtml"/>	
+	 <p:panel id="panel" header="Curso Disponíveis" style="margin-bottom:10px; width:30%">
+			<p:dataTable var="curso" value="#{cursoMB.listCurso}"> 
+				<p:column headerText="Tabela">
+			        <h:outputText value="#{curso.descricao}" />
+			    </p:column>
+			</p:dataTable>
+			<p:dataList value="#{cursoMB.listCurso}" var="curso" type="ordered">
+		        <f:facet name="header">
+		            Básico
+		        </f:facet>
+		        #{curso.descricao}
+		    </p:dataList>
+		</p:panel>		
 </h:body>
 </html>

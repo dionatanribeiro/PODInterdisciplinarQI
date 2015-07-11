@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -9,7 +10,9 @@ import javax.faces.bean.SessionScoped;
 
 import br.edu.qi.euroschool.core.AbstractMB;
 import br.edu.qi.euroschool.core.GenericBean;
+import br.edu.qi.euroschool.dto.WeakDto;
 import br.edu.qi.euroschool.model.Pessoa;
+import br.edu.qi.euroschool.model.weak.Deficiencia;
 import br.edu.qi.euroschool.model.weak.Religiao;
 
 @ManagedBean
@@ -25,6 +28,8 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	private String logradouro;
 	private int cep;
 	private Religiao religiao;
+	private Deficiencia deficiencia;
+	private Long id;
 
 	@Override
 	public void validaCampos() {
@@ -48,7 +53,15 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	public List<Pessoa> getListPessoa() {
 		return bean.selectAll();
 	}
-
+	
+	public List<WeakDto> getComboList() {
+		List<WeakDto> listDto = new ArrayList<WeakDto>();
+		for (Pessoa p:bean.selectAll()){
+			listDto.add(p.toDto());
+		}
+		return listDto;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -71,6 +84,22 @@ public class PessoaMB extends AbstractMB implements Serializable {
 
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
+	}
+
+	public Deficiencia getDeficiencia() {
+		return deficiencia;
+	}
+
+	public void setDeficiencia(Deficiencia deficiencia) {
+		this.deficiencia = deficiencia;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

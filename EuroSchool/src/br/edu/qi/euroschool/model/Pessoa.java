@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
+import br.edu.qi.euroschool.dto.WeakDto;
 import br.edu.qi.euroschool.model.weak.Religiao;
 
 @Entity
@@ -52,6 +53,10 @@ public class Pessoa extends AbstractEntity implements Serializable{
 
 	public void setReligiao(Religiao religiao) {
 		this.religiao = religiao;
+	}
+	
+	public WeakDto toDto(){
+		return new WeakDto(getId(),getNome());		
 	}
 
 }

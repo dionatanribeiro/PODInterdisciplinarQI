@@ -8,22 +8,22 @@ import javax.ejb.Stateless;
 
 import br.edu.qi.euroschool.core.AbstractDao;
 import br.edu.qi.euroschool.core.GenericBean;
-import br.edu.qi.euroschool.model.Matricula;
+import br.edu.qi.euroschool.model.weak.Deficiencia;
 
 @Stateless
 @Local
-public class MatriculaBean implements GenericBean<Matricula> {
+public class DeficienciaBean implements GenericBean<Deficiencia>{
 
-	@EJB(beanName = "MatriculaDao")
-	AbstractDao<Matricula> dao;
+	@EJB(beanName = "DeficienciaDao")
+	AbstractDao<Deficiencia> dao;
 	
 	@Override
-	public void salvar(Matricula matricula) {
-		dao.insert(matricula);
+	public void salvar(Deficiencia deficiencia) {
+		dao.insert(deficiencia);
 	}
-	
+
 	@Override
-	public List<Matricula> selectAll() {
+	public List<Deficiencia> selectAll() {
 		return dao.selectAll();
 	}
 	

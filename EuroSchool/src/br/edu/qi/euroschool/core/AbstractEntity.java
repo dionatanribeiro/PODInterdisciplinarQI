@@ -34,4 +34,8 @@ public abstract class AbstractEntity {
 		return ((id != null) ? (this.getClass().hashCode() + id.hashCode())
 				: super.hashCode());
 	}
+	
+	public AbstractDto toDto(){
+		return new AbstractDto(id);		
+	}
 }

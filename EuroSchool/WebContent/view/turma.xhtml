@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Turma</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Turma" style="margin-bottom:10px; width:50%">
+				<p:messages id="msg"/>
+				<h:panelGrid columns="3" cellpadding="5">
+				<p:pickList id="pickList" value="#{alunoMB.dlmAlunos}" var="dlmAlunos" 
+					itemLabel="#{dlmAlunos}" itemValue="#{dlmAlunos}">
+					<o:converter converterId="omnifaces.ListConverter" list="#{alunoMB.dlmAlunos.source}" />	
+				</p:pickList>			        
+				</h:panelGrid>
+			<p:commandButton action="#{turmaMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

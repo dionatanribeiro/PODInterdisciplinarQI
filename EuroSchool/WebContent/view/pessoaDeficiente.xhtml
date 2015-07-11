@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Cadastro de Pessoa com Defiência </title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Pessoa portadora de necessidades especiais" style="margin-bottom:10px; width:30%">
+				<p:messages id="msg" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="pessoa" value="Deficiencia:" />
+			        <p:selectOneMenu id="pessoa" value="#{pessoaMB.id}">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{pessoaMB.comboList}" var="pessoa" itemLabel="#{pessoa.descritivo}" itemValue="#{pessoa.id}"/>
+            		</p:selectOneMenu>
+					<p:outputLabel for="deficiencia" value="Deficiencia:" />
+			        <p:selectOneMenu id="deficiencia" value="#{pessoaMB.deficiencia}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{deficienciaMB.listDeficiencia}" var="deficiencia" itemLabel="#{deficiencia.descricao}" itemValue="#{deficiencia}"/>
+            		</p:selectOneMenu>
+				</h:panelGrid>
+			<p:commandButton action="#{pessoaMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

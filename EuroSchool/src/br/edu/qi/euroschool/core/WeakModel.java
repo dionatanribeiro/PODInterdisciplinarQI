@@ -2,6 +2,8 @@ package br.edu.qi.euroschool.core;
 
 import javax.persistence.MappedSuperclass;
 
+import br.edu.qi.euroschool.dto.WeakDto;
+
 //Classes que possuem apenas a descrição.
 @MappedSuperclass
 public abstract class WeakModel extends AbstractEntity {
@@ -23,4 +25,9 @@ public abstract class WeakModel extends AbstractEntity {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	} 
+	
+	public WeakDto toDto(){
+		return new WeakDto(getId(),getDescricao());
+	}
+	
 }

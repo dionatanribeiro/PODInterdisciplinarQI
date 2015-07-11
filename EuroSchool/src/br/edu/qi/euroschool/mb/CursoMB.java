@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -29,8 +30,12 @@ public class CursoMB extends WeakMB implements Serializable {
 	@Override
 	public String salvar() {
 		validaCampos();
-		bean.salvar(new Curso("blabla"));
+		bean.salvar(new Curso(getDescricao()));
 		return "home";
+	}
+	
+	public List<Curso> getListCurso(){
+		return bean.selectAll();
 	}
 
 }

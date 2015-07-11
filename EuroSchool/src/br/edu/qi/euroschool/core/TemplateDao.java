@@ -54,6 +54,26 @@ public abstract class TemplateDao<T> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	protected List<T> listEntity(String fields, String filtro) {
+		try {
+			String qry = "select "+ fields +" from " + getTypeClass().getName() + " t ";
+			if (!filtro.isEmpty()){
+				qry += "where " + filtro; 
+			}
+			Query query = getEntityManager().createQuery(qry);
+			List<T> listaResultado = query.getResultList(); 
+			return listaResultado;
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			if (factory != null) {
+				factory.close();
+			}
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
 	protected T findById(Long id) {
 		try {
 			Query query = getEntityManager().createQuery("select t from " + getTypeClass().getName() + " t where id =" + id);
