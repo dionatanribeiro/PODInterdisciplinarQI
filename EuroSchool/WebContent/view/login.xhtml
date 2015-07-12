@@ -8,15 +8,19 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:messages id="messages" />
+		<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" redisplay="false" visible="#{loginMB.isErroLogin}"/>
+		
 		<p:fieldset style="width:50px">
-			<h:panelGrid columns="2" cellpadding="5">			
-				<p:outputLabel value="Usuário:" />
-				<p:inputText id="username" value="#{loginMB.user}"></p:inputText>
-				<p:outputLabel value="Senha:" />
-				<p:password id="password" value="#{loginMB.pwd}"></p:password>					
+			<h:panelGrid columns="2" cellpadding="5">
+						
+				<p:outputLabel for="username" value="Usuário:" />
+				<p:inputText id="username" required="true" value="#{loginMB.user}" />
+			
+				<p:outputLabel for="password" value="Senha:" />
+				<p:password id="password" required="true" value="#{loginMB.pwd}" />					
+			
 			</h:panelGrid>
-			<p:commandButton action="#{loginMB.validaUsuario}" value="Login"></p:commandButton>
+			<p:commandButton action="#{loginMB.validaUsuario}" value="Login" />
 		</p:fieldset>
 	</h:form>
 </h:body>

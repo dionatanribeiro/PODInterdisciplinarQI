@@ -42,7 +42,7 @@ public class MBUtils {
 	}
 	
 	public static void erroLogin() {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", USUARIO_NAO_ENCONTRADO));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, USUARIO_NAO_ENCONTRADO, null));
 	}
 	
 	public static Long formatTelephone(String telefone) {

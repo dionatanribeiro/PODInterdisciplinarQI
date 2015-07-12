@@ -13,11 +13,11 @@ import br.edu.qi.euroschool.model.Usuario;
 public class LoginDao extends TemplateDao<Usuario> implements LoginDaoService{
 
 	@Override
-	public boolean validarLogin(String user, String password) {
+	public boolean validarLogin(String login, String password) {
 		Query query = getEntityManager().createQuery("select u from Usuario u " +
-				"where u.name = :user and " +
-				" u.password = :password");
-		query.setParameter("user", user);
+				"where u.login = :login and " +
+				" u.senha = :password");
+		query.setParameter("login", login);
 		query.setParameter("password", password);
 		
 		boolean isFindLogin = query.getResultList().isEmpty();

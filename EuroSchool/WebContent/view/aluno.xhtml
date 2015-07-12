@@ -11,7 +11,7 @@
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Aluno" style="margin-bottom:10px; width:30%">
-				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+				<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="pessoa" value="Pessoa:" />
 			        <p:selectOneMenu id="pessoa" value="#{alunoMB.pessoa}" converter="omnifaces.SelectItemsConverter">

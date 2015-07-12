@@ -24,6 +24,8 @@ public class LoginMB implements Serializable {
 	private String msg;
 	private String user;
 
+	private boolean isErroLogin = false;
+	
 	public String validaUsuario() {
 		boolean isValid = bean.validarLogin(user, pwd);
 		if (isValid) {
@@ -31,6 +33,7 @@ public class LoginMB implements Serializable {
 			session.setAttribute("username", user);
 			return "home";
 		} else {
+			isErroLogin = true;
 			MBUtils.erroLogin();
 			return "login";
 		}
@@ -64,6 +67,14 @@ public class LoginMB implements Serializable {
 		HttpSession session = SessionBean.getSession();
 		session.invalidate();
 		return "login";
+	}
+	
+	public void setIsErroLogin(boolean isErroLogin) {
+		this.isErroLogin = isErroLogin;
+	}
+
+	public boolean getIsErroLogin() {
+		return isErroLogin;
 	}
 	
 }

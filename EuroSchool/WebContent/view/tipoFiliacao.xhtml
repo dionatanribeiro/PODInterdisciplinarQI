@@ -10,7 +10,7 @@
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Tipo de Filiação" style="margin-bottom:10px; width:30%">
-				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+				<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="descricao" value="Descrição:" />
 					<p:inputText id="descricao" required="true" value="#{tipoFiliacaoMB.descricao}"/>
