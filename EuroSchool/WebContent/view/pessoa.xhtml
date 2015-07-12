@@ -11,11 +11,10 @@
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Pessoa" style="margin-bottom:10px; width:30%">
-				<p:messages id="msg" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="nome" value="Nome:" />
 					<p:inputText id="nome" required="true" value="#{pessoaMB.nome}"/>
-					
 					<p:outputLabel for="religiao" value="Religiao:" />
 			        <p:selectOneMenu id="religiao" value="#{pessoaMB.religiao}" converter="omnifaces.SelectItemsConverter">
                 		<f:selectItem itemLabel="Selecione..." itemValue="" />

@@ -10,7 +10,7 @@
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Deficiência" style="margin-bottom:10px; width:30%">
-				<p:messages id="msg" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="descricao" value="Descrição:" />
 					<p:inputText id="descricao" required="true" value="#{deficienciaMB.descricao}"/>

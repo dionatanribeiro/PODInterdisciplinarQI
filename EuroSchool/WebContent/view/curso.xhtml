@@ -10,12 +10,12 @@
 	<ui:define name="cadastro">
 		<h:form>
 			<p:panel id="panel" header="Curso" style="margin-bottom:10px; width:30%">
-				<p:messages id="msg" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="descricao" value="Descrição:" />
 					<p:inputText id="descricao" required="true" value="#{cursoMB.descricao}"/>
 				</h:panelGrid>
-			<p:commandButton action="#{cursoMB.salvar}" value="Salvar" />
+			<p:commandButton action="#{cursoMB.salvar}" value="Salvar"/>
 			</p:panel>			      
 		</h:form>
 	</ui:define>	

@@ -8,6 +8,8 @@ import javax.faces.context.FacesContext;
 
 public class MBUtils {
 
+	private static final String CAMPOS_OBRIGATORIOS_NAO_PREENCHIDOS = "Campos obrigatórios não preenchidos!";
+	
 	public static void buildMessage(String idElementoNaTela, String mensagem) {
 		FacesMessage facesMessage = new FacesMessage(mensagem);
 		FacesContext.getCurrentInstance().addMessage(idElementoNaTela,
@@ -34,4 +36,7 @@ public class MBUtils {
 		getContexto().redirect(url);
 	}
 	
+	public static void erroCamposObrigatorios() {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", CAMPOS_OBRIGATORIOS_NAO_PREENCHIDOS));
+	}
 }
