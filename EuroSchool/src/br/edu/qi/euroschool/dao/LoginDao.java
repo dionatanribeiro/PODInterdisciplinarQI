@@ -1,14 +1,31 @@
 package br.edu.qi.euroschool.dao;
 
-public class LoginDao {
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.Query;
 
-	public static boolean validate(String user, String pwd) {
+import br.edu.qi.euroschool.core.TemplateDao;
+import br.edu.qi.euroschool.interfaces.LoginDaoService;
+import br.edu.qi.euroschool.model.Usuario;
+
+@Stateless
+@Local
+public class LoginDao extends TemplateDao<Usuario> implements LoginDaoService{
+
+	@Override
+	public boolean validarLogin(String user, String password) {
+		Query query = getEntityManager().createQuery("select u from Usuario u " +
+				"where u.name = :user and " +
+				" u.password = :password");
+		query.setParameter("user", user);
+		query.setParameter("password", password);
 		
-		if (user.equals("admin")) {
+		boolean isFindLogin = query.getResultList().isEmpty();
+		if (!isFindLogin) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-
+	
 }

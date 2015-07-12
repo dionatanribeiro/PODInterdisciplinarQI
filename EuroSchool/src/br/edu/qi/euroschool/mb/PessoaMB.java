@@ -17,6 +17,7 @@ import br.edu.qi.euroschool.model.weak.Deficiencia;
 import br.edu.qi.euroschool.model.weak.Etnia;
 import br.edu.qi.euroschool.model.weak.Religiao;
 import br.edu.qi.euroschool.model.weak.Sexo;
+import br.edu.qi.euroschool.util.MBUtils;
 
 @ManagedBean
 @SessionScoped
@@ -31,6 +32,7 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	private String nome;
 	private String logradouro;
 	private String cep;
+	private String telefone;
 
 	private Religiao religiao;
 	private List<Deficiencia> deficienciasEscolhidas;
@@ -50,6 +52,7 @@ public class PessoaMB extends AbstractMB implements Serializable {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setNome(nome);
 		pessoa.setCep(Integer.parseInt(cep.replace("-", "")));
+		pessoa.setTelefone(MBUtils.formatTelephone(telefone));
 		pessoa.setLogradouro(logradouro);
 		pessoa.setReligiao(religiao);
 		pessoa.setListaDeficiencia(deficienciasEscolhidas);
@@ -57,11 +60,6 @@ public class PessoaMB extends AbstractMB implements Serializable {
 		pessoa.setEtnia(etnia);
 		pessoa.setFiliacao(filiacao);
 		
-		/**
-		 * Decidir como criar o campo de telefone, objeto ou campo de texto na tela. Apenas isso que falta para funcionar o cadastro de pessoa.
-		 * Atualmente o erro que ecorre é porque a coluna telefone da tabela pessoa é not null. O resto funciona.
-		 */
-		//TODO
 		bean.salvar(pessoa);
 		return "home";
 	}
@@ -150,6 +148,12 @@ public class PessoaMB extends AbstractMB implements Serializable {
 		this.filiacao = filiacao;
 	}
 
-	
-	
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 }

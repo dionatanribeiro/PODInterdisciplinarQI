@@ -29,14 +29,15 @@ public class Pessoa extends AbstractEntity implements Serializable {
 	private String nome;
 	private Integer cep;
 	private String logradouro;
-
+	private Long telefone;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IdReligiao", referencedColumnName = "ID", nullable = false, unique = false)
 	private Religiao religiao;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IdTelefone", referencedColumnName = "ID", nullable = false, unique = false)
-	private Telefone telefone;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "IdTelefone", referencedColumnName = "ID", nullable = false, unique = false)
+//	private Telefone telefone;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IdFiliacao", referencedColumnName = "ID", nullable = false, unique = false)
@@ -99,11 +100,11 @@ public class Pessoa extends AbstractEntity implements Serializable {
 		return new WeakDto(getId(), getNome());
 	}
 
-	public Telefone getTelefone() {
+	public Long getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Telefone telefone) {
+	public void setTelefone(Long telefone) {
 		this.telefone = telefone;
 	}
 

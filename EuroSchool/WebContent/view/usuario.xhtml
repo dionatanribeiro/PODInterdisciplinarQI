@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Cadastro de Usuários</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Usuario" style="margin-bottom:10px; width:30%">
+				
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+				
+				<h:panelGrid columns="2" cellpadding="5">
+					
+					<p:outputLabel for="login" value="Login:" />
+					<p:inputText id="login" required="true" value="#{usuarioMB.login}"/>
+					
+					<p:outputLabel for="senha" value="Senha:" />
+					<p:inputText id="senha" required="true" value="#{usuarioMB.senha}"/>
+					
+			        <p:selectOneMenu id="pessoa" value="#{usuarioMB.pessoa}" converter="omnifaces.SelectItemsConverter" required="true">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{pessoaMB.listPessoa}" var="pessoa" itemLabel="#{pessoa.nome}" itemValue="#{pessoa}"/>
+            		</p:selectOneMenu>
+            		
+				</h:panelGrid>
+			<p:commandButton action="#{usuarioMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

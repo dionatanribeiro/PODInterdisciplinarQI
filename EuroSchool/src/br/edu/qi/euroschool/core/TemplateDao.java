@@ -15,7 +15,7 @@ public abstract class TemplateDao<T> {
 	EntityManagerFactory factory = null;
 	EntityManager manager;
 
-	private EntityManager getEntityManager() {
+	public EntityManager getEntityManager() {
 		if (factory == null) {
 			factory = Persistence.createEntityManagerFactory("EuroSchoolDB");
 			manager = factory.createEntityManager();
@@ -88,7 +88,7 @@ public abstract class TemplateDao<T> {
 		}
 		return null;
 	}
-
+	
 	private Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];

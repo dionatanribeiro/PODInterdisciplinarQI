@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 
 public class MBUtils {
 
+	private static final String USUARIO_NAO_ENCONTRADO = "Usuário não encontrado";
 	private static final String CAMPOS_OBRIGATORIOS_NAO_PREENCHIDOS = "Campos obrigatórios não preenchidos!";
 	
 	public static void buildMessage(String idElementoNaTela, String mensagem) {
@@ -39,4 +40,17 @@ public class MBUtils {
 	public static void erroCamposObrigatorios() {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", CAMPOS_OBRIGATORIOS_NAO_PREENCHIDOS));
 	}
+	
+	public static void erroLogin() {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", USUARIO_NAO_ENCONTRADO));
+	}
+	
+	public static Long formatTelephone(String telefone) {
+		return Long.parseLong(telefone
+				.replace("(", "")
+				.replace(")", "")
+				.replace("-", "")
+				.replace(" ", ""));
+	}
+	
 }

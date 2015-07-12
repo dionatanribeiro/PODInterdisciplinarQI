@@ -25,6 +25,9 @@
 					<p:outputLabel for="logradouro" value="Logradouro:" />
 					<p:inputText id="logradouro" required="true" value="#{pessoaMB.logradouro}"/>
 					
+					<p:outputLabel for="telefone" value="Telefone:" />
+					<p:inputMask id="telefone" value="#{pessoaMB.telefone}" mask="(99) 9999-9999" required="true"/>
+					
 					<p:outputLabel for="religiao" value="Religiao:" />
 			        <p:selectOneMenu id="religiao" value="#{pessoaMB.religiao}" converter="omnifaces.SelectItemsConverter" required="true">
                 		<f:selectItem itemLabel="Selecione..." itemValue="" />

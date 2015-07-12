@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.core.WeakMB;
 import br.edu.qi.euroschool.model.weak.Curso;
+import br.edu.qi.euroschool.util.MBUtils;
 
 @ManagedBean
 @ViewScoped
@@ -19,17 +20,9 @@ public class CursoMB extends WeakMB implements Serializable {
 
 	@EJB(beanName = "CursoBean")
 	private GenericBean<Curso> bean;
-	
-	@Override
-	public void validaCampos() {
-		if (getDescricao().isEmpty()) {
-			
-		}
-	}
 
 	@Override
 	public String salvar() {
-		validaCampos();
 		bean.salvar(new Curso(getDescricao()));
 		return "home";
 	}
