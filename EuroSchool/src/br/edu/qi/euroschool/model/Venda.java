@@ -5,6 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,6 +24,10 @@ public class Venda extends AbstractEntity implements Serializable {
 
 	private double valorTotal;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "pessoaId", referencedColumnName = "ID", nullable = false, unique = true)
+	public Pessoa pessoa;
+	
 	public double getValorTotal() {
 		return valorTotal;
 	}
@@ -37,4 +44,12 @@ public class Venda extends AbstractEntity implements Serializable {
 		this.data = data;
 	}
 
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
 }
