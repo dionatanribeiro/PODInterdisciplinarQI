@@ -1,6 +1,7 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -43,5 +44,9 @@ public class FiliacaoMB extends WeakMB implements Serializable {
 	public void setTipoFiliacao(TipoFiliacao tipoFiliacao) {
 		this.tipoFiliacao = tipoFiliacao;
 	}
-
+	
+	public List<Filiacao> getListFiliacao() {
+		return bean.selectAll();
+	}
+	
 }

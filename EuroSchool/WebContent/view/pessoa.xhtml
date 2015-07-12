@@ -10,16 +10,50 @@
 	</ui:define>
 	<ui:define name="cadastro">
 		<h:form>
-			<p:panel id="panel" header="Pessoa" style="margin-bottom:10px; width:30%">
+			<p:panel id="panel" header="Pessoa" style="margin-bottom:10px; width:55%">
+				
 				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-				<h:panelGrid columns="2" cellpadding="5">
+				
+				<h:panelGrid columns="4" cellpadding="5">
+					
 					<p:outputLabel for="nome" value="Nome:" />
 					<p:inputText id="nome" required="true" value="#{pessoaMB.nome}"/>
+					
+					<p:outputLabel for="cep" value="CEP:" />
+					<p:inputMask id="cep" value="#{pessoaMB.cep}" mask="99999-999" required="true"/>
+					
+					<p:outputLabel for="logradouro" value="Logradouro:" />
+					<p:inputText id="logradouro" required="true" value="#{pessoaMB.logradouro}"/>
+					
 					<p:outputLabel for="religiao" value="Religiao:" />
-			        <p:selectOneMenu id="religiao" value="#{pessoaMB.religiao}" converter="omnifaces.SelectItemsConverter">
+			        <p:selectOneMenu id="religiao" value="#{pessoaMB.religiao}" converter="omnifaces.SelectItemsConverter" required="true">
                 		<f:selectItem itemLabel="Selecione..." itemValue="" />
                 		<f:selectItems value="#{religiaoMB.listReligiao}" var="religiao" itemLabel="#{religiao.descricao}" itemValue="#{religiao}"/>
             		</p:selectOneMenu>
+            		
+					<p:outputLabel for="sexo" value="Sexo:" />
+			        <p:selectOneMenu id="sexo" value="#{pessoaMB.sexo}" converter="omnifaces.SelectItemsConverter" required="true">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{sexoMB.listSexo}" var="sexo" itemLabel="#{sexo.descricao}" itemValue="#{sexo}"/>
+            		</p:selectOneMenu>
+					
+					<p:outputLabel for="etnia" value="Etnia:" />
+			        <p:selectOneMenu id="etnia" value="#{pessoaMB.etnia}" converter="omnifaces.SelectItemsConverter" required="true">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{etniaMB.listEtnia}" var="etnia" itemLabel="#{etnia.descricao}" itemValue="#{etnia}"/>
+            		</p:selectOneMenu>
+            		
+					<p:outputLabel for="filiacao" value="Filiacao:" />
+			        <p:selectOneMenu id="filiacao" value="#{pessoaMB.filiacao}" converter="omnifaces.SelectItemsConverter" required="true">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{filiacaoMB.listFiliacao}" var="filiacao" itemLabel="#{filiacao.descricao}" itemValue="#{filiacao}"/>
+            		</p:selectOneMenu>
+					
+					<p:outputLabel for="deficiencia" value="Deficiência:" />
+			        <p:selectManyMenu id="deficiencia" value="#{pessoaMB.deficienciasEscolhidas}" filter="true" filterMatchMode="contains" showCheckbox="true">
+			         	<f:selectItems value="#{deficienciaMB.listDeficiencia}" var="deficiencia" itemLabel="#{deficiencia.descricao}" itemValue="#{deficiencia}" />
+            		</p:selectManyMenu>
+            		
 				</h:panelGrid>
 			<p:commandButton action="#{pessoaMB.salvar}" value="Salvar"/>
 			</p:panel>			      

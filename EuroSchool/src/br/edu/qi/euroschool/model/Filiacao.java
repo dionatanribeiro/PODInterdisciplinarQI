@@ -25,6 +25,10 @@ public class Filiacao extends WeakModel implements Serializable {
 	@JoinColumn(name = "IdTipoFiliacao", referencedColumnName = "ID", nullable = false, unique = false)
 	private TipoFiliacao tipoFiliacao;
 
+	public Filiacao() {
+		super();
+	}
+	
 	public Filiacao(String descricao) {
 		super(descricao);
 	}
