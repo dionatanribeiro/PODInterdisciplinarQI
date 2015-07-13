@@ -42,6 +42,10 @@ public class Professor extends AbstractEntity implements Serializable {
 		this.formacao = formacao;
 		this.pessoa = pessoa;		
 	}
+	
+	public Professor() {
+		super();
+	}
 
 	public String getFormacao() {
 		return formacao;

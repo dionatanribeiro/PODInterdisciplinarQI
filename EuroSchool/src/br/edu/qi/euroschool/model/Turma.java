@@ -40,12 +40,12 @@ public class Turma extends AbstractEntity implements Serializable {
 	private String tema;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cursoId", referencedColumnName = "ID", nullable = false, unique = true)
+	@JoinColumn(name = "cursoId", referencedColumnName = "ID", nullable = false, unique = false)
 	private Curso curso;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "professorId", referencedColumnName = "ID", nullable = false, unique = true)
-	public Professor professor;
+	@JoinColumn(name = "professorId", referencedColumnName = "ID", nullable = false, unique = false)
+	private Professor professor;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "produto_turma", 

@@ -10,7 +10,6 @@ import javax.faces.bean.ViewScoped;
 import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.core.WeakMB;
 import br.edu.qi.euroschool.model.weak.Curso;
-import br.edu.qi.euroschool.util.MBUtils;
 
 @ManagedBean
 @ViewScoped

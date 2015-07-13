@@ -11,14 +11,39 @@
 	</ui:define>
 	<ui:define name="cadastro">
 		<h:form>
-			<p:panel id="panel" header="Turma" style="margin-bottom:10px; width:50%">
+			<p:panel id="panel" header="Turma" style="margin-bottom:10px">
 				<p:messages id="msg"/>
-				<h:panelGrid columns="3" cellpadding="5">
-				<p:pickList id="pickList" value="#{alunoMB.dlmAlunos}" var="dlmAlunos" 
-					itemLabel="#{dlmAlunos}" itemValue="#{dlmAlunos}">
-					<o:converter converterId="omnifaces.ListConverter" list="#{alunoMB.dlmAlunos.source}" />	
-				</p:pickList>			        
+				<h:panelGrid columns="4" cellpadding="10">
+				
+					<p:outputLabel for="tema" value="Tema:" />
+					<p:inputText id="tema" required="true" value="#{turmaMB.tema}"/>
+					
+					<p:outputLabel for="curso" value="Curso:" />
+			        <p:selectOneMenu id="curso" value="#{turmaMB.curso}" converter="omnifaces.SelectItemsConverter">
+	               		<f:selectItem itemLabel="Selecione..." itemValue="" />
+	               		<f:selectItems value="#{cursoMB.listCurso}" var="curso" itemLabel="#{curso.descricao}" itemValue="#{curso}"/>
+	           		</p:selectOneMenu>
+	           		
+					<p:outputLabel for="professor" value="Professor:" />
+			        <p:selectOneMenu id="professor" value="#{turmaMB.professor}" converter="omnifaces.SelectItemsConverter">
+	               		<f:selectItem itemLabel="Selecione..." itemValue="" />
+	               		<f:selectItems value="#{professorMB.listProfessor}" var="professor" itemLabel="#{professor.pessoa.nome}" itemValue="#{professor}"/>
+	           		</p:selectOneMenu>
+	           		
+	           		<p:outputLabel for="dataInicio" value="Inicio:" />
+	        		<p:calendar id="dataInicio" value="#{turmaMB.dataInicio}" pattern="dd-MM-yyyy" mask="true" />
+	        		
+	           		<p:outputLabel for="dataFim" value="Inicio:" />
+	        		<p:calendar id="dataFim" value="#{turmaMB.dataFim}" pattern="dd-MM-yyyy" mask="true" />
+	        		
+	        		<h:outputLabel for="capacidade" value="Capacidade " />
+        			<p:spinner id="capacidade" value="#{turmaMB.capacidade}" min="1" max="500" />        		
+								        
 				</h:panelGrid>
+				<p:pickList id="pickList" value="#{turmaMB.dlmAlunos}" var="dlmAlunos" 
+						itemLabel="#{dlmAlunos}" itemValue="#{dlmAlunos}">
+						<o:converter converterId="omnifaces.ListConverter" list="#{turmaMB.dlmAlunos.source}" />	
+				</p:pickList>
 			<p:commandButton action="#{turmaMB.salvar}" value="Salvar"/>
 			</p:panel>			      
 		</h:form>

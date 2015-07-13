@@ -1,18 +1,14 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.primefaces.model.DualListModel;
 
 import br.edu.qi.euroschool.core.AbstractMB;
 import br.edu.qi.euroschool.core.GenericBean;
@@ -23,24 +19,6 @@ import br.edu.qi.euroschool.model.pessoas.Aluno;
 @ViewScoped
 public class AlunoMB extends AbstractMB implements Serializable {
 
-	//Variáveis para disponibilizar na Dual List de turma.
-	private DualListModel<Aluno> dlmAlunos;
-	
-	public DualListModel<Aluno> getDlmAlunos() {
-		return dlmAlunos;
-	}
-
-	public void setDlmAlunos(DualListModel<Aluno> dualListModel) {
-		this.dlmAlunos = dualListModel;
-	}
-	
-	@PostConstruct
-    public void init() {
-		List<Aluno> alunosDisponiveis = bean.selectAll();
-		List<Aluno> alunosSelecionados = new ArrayList<Aluno>();
-		setDlmAlunos(new DualListModel<Aluno>(alunosDisponiveis, alunosSelecionados));
-	}
-	
 	@EJB(beanName = "AlunoBean")
 	GenericBean<Aluno> bean;
 

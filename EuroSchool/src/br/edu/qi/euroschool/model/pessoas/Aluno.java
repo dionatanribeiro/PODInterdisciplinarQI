@@ -75,5 +75,11 @@ public class Aluno extends AbstractEntity implements Serializable{
 	public void setTurma(Turma turma) {
 		this.turma = turma;
 	}
+	
+	@Override
+	public String toString() {
+//		return String.format("%s[id=%d]", getPessoa().getNome(), getId());
+		return getPessoa().getNome();
+	}
 
 }

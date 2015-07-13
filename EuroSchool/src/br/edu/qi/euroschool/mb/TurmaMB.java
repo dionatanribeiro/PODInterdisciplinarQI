@@ -1,11 +1,16 @@
 package br.edu.qi.euroschool.mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
+import org.primefaces.model.DualListModel;
 
 import br.edu.qi.euroschool.core.GenericBean;
 import br.edu.qi.euroschool.core.WeakMB;
@@ -23,17 +28,19 @@ public class TurmaMB extends WeakMB implements Serializable{
 	@EJB(beanName = "TurmaBean")
 	GenericBean<Turma> bean;
 	
-	private List<Aluno> alunosDaTurma;
+	@EJB(beanName = "AlunoBean")
+	GenericBean<Aluno> alunoBean;
+	
 	private int capacidade;
 	private String tema;
 	public Professor professor;
 	private Curso curso;
+	private Date dataInicio;
+	private Date dataFim;
+	
 	
 	@Override
 	public void validaCampos() {
-		if (getDescricao().isEmpty()) {
-			
-		}
 	}
 	
 	public int getCapacidade() {
@@ -67,6 +74,22 @@ public class TurmaMB extends WeakMB implements Serializable{
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+	
+	public Date getDataInicio() {
+		return dataInicio;
+	}
+	
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+	
+	public Date getDataFim() {
+		return dataFim;
+	}
+	
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
+	}
 
 	public List<Turma> getListTurma() {
 		return bean.selectAll();
@@ -75,16 +98,33 @@ public class TurmaMB extends WeakMB implements Serializable{
 	@Override
 	public String salvar() {
 		validaCampos();
-		bean.salvar(new Turma());
+		Turma turma = new Turma();
+		turma.setProfessor(getProfessor());
+		turma.setListaAluno(dlmAlunos.getTarget());
+		turma.setCurso(getCurso());
+		turma.setTema(tema);
+		turma.setInicio(dataInicio);
+		turma.setFim(dataFim);
+		turma.setCapacidade(capacidade);
+		bean.salvar(turma);
 		return "home";
 	}
 
-	public List<Aluno> getAlunosDaTurma() {
-		return alunosDaTurma;
+	private DualListModel<Aluno> dlmAlunos;
+	
+	public DualListModel<Aluno> getDlmAlunos() {
+		return dlmAlunos;
 	}
 
-	public void setAlunosDaTurma(List<Aluno> alunosDaTurma) {
-		this.alunosDaTurma = alunosDaTurma;
+	public void setDlmAlunos(DualListModel<Aluno> dualListModel) {
+		this.dlmAlunos = dualListModel;
+	}
+	
+	@PostConstruct
+    public void init() {
+		List<Aluno> alunosDisponiveis = alunoBean.selectAll();
+		List<Aluno> alunosSelecionados = new ArrayList<Aluno>();
+		setDlmAlunos(new DualListModel<Aluno>(alunosDisponiveis, alunosSelecionados));
 	}
 
 }
