@@ -1,5 +1,6 @@
 package br.edu.qi.euroschool.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -11,7 +12,7 @@ import br.edu.qi.euroschool.model.Turma;
 
 @Stateless
 @Local
-public class TurmaDao extends TemplateDao<Turma> implements AbstractDao<Turma> {
+public class TurmaDao extends TemplateDao<Turma>implements AbstractDao<Turma> {
 
 	@Override
 	public void insert(Turma turma) {
@@ -21,6 +22,10 @@ public class TurmaDao extends TemplateDao<Turma> implements AbstractDao<Turma> {
 	@Override
 	public List<Turma> selectAll() {
 		return super.listEntity();
+	}
+
+	public List<Turma> selectByPeriodo(Date inicio, Date fim) {
+		return super.listEntity("t", " inicio=" + inicio.toString() + ", fim=" + fim.toString());
 	}
 
 }

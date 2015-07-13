@@ -97,6 +97,7 @@ public abstract class TemplateDao<T> {
 	
 	public static void main(String[] args) {
 		EntityManagerFactory teste = Persistence.createEntityManagerFactory("EuroSchoolDB");
+		
 	}
 	
 }
