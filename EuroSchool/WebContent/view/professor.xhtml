@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>  
+<ui:composition template="templates/cadBase.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">
+		<title>Cadastro de Professor</title>
+	</ui:define>
+	<ui:define name="cadastro">
+		<h:form>
+			<p:panel id="panel" header="Professor" style="margin-bottom:10px; width:30%">
+				<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="pessoa" value="Pessoa:" />
+			        <p:selectOneMenu id="pessoa" value="#{professorMB.pessoa}" converter="omnifaces.SelectItemsConverter">
+                		<f:selectItem itemLabel="Selecione..." itemValue="" />
+                		<f:selectItems value="#{pessoaMB.listPessoa}" var="pessoa" itemLabel="#{pessoa.nome}" itemValue="#{pessoa}"/>
+            		</p:selectOneMenu>
+            		
+					<p:outputLabel for="formacao" value="Formação:" />
+					<p:inputText id="formacao" required="true" value="#{professorMB.formacao}"/>
+				</h:panelGrid>
+			<p:commandButton action="#{professorMB.salvar}" value="Salvar"/>
+			</p:panel>			      
+		</h:form>
+	</ui:define>	
+</ui:composition>

@@ -38,7 +38,7 @@ public class AlunoMB extends AbstractMB implements Serializable {
     public void init() {
 		List<Aluno> alunosDisponiveis = bean.selectAll();
 		List<Aluno> alunosSelecionados = new ArrayList<Aluno>();
-		setDlmAlunos(new DualListModel<Aluno>(alunosDisponiveis,alunosSelecionados));
+		setDlmAlunos(new DualListModel<Aluno>(alunosDisponiveis, alunosSelecionados));
 	}
 	
 	@EJB(beanName = "AlunoBean")

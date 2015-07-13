@@ -7,19 +7,19 @@ import javax.ejb.Stateless;
 
 import br.edu.qi.euroschool.core.AbstractDao;
 import br.edu.qi.euroschool.core.TemplateDao;
-import br.edu.qi.euroschool.model.pessoas.Aluno;
+import br.edu.qi.euroschool.model.pessoas.Professor;
 
 @Stateless
 @Local
-public class AlunoDao extends TemplateDao<Aluno> implements AbstractDao<Aluno>{
+public class ProfessorDao extends TemplateDao<Professor> implements AbstractDao<Professor>{
 
 	@Override
-	public void insert(Aluno aluno) {
-		super.persistEntity(aluno);
+	public void insert(Professor professor) {
+		super.persistEntity(professor);
 	}
 
 	@Override
-	public List<Aluno> selectAll() {
+	public List<Professor> selectAll() {
 		return super.listEntity();
 	}
 
