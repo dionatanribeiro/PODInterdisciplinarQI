@@ -52,10 +52,6 @@ public class Pessoa extends AbstractEntity implements Serializable {
 	@NotFound(action = NotFoundAction.IGNORE)
 	private List<Deficiencia> listaDeficiencia;
 
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@NotFound(action = NotFoundAction.IGNORE)
-	private List<Venda> venda;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IdSexo", referencedColumnName = "ID", nullable = false, unique = false)
 	private Sexo sexo;
@@ -122,14 +118,6 @@ public class Pessoa extends AbstractEntity implements Serializable {
 
 	public void setListaDeficiencia(List<Deficiencia> listaDeficiencia) {
 		this.listaDeficiencia = listaDeficiencia;
-	}
-
-	public List<Venda> getVenda() {
-		return venda;
-	}
-
-	public void setVenda(List<Venda> venda) {
-		this.venda = venda;
 	}
 
 	public Sexo getSexo() {

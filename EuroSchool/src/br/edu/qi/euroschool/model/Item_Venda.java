@@ -24,10 +24,6 @@ public class Item_Venda extends AbstractEntity implements Serializable{
 	@NotFound(action = NotFoundAction.IGNORE)
 	private Item item;
 	
-	@ManyToOne
-	@JoinColumn(name = "idVenda", referencedColumnName = "ID", nullable = false)
-	private Venda venda;
-
 	public Integer getQuantidade() {
 		return quantidade;
 	}
@@ -50,14 +46,6 @@ public class Item_Venda extends AbstractEntity implements Serializable{
 
 	public void setItem(Item item) {
 		this.item = item;
-	}
-
-	public Venda getVenda() {
-		return venda;
-	}
-
-	public void setVenda(Venda venda) {
-		this.venda = venda;
 	}
 
 }
