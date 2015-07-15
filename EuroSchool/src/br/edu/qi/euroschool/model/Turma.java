@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -63,12 +64,10 @@ public class Turma extends AbstractEntity implements Serializable {
 			referencedColumnName = "id") })
 	private List<Horario> listaHorario;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "aluno_turma", 
-		joinColumns = { @JoinColumn(name = "IdTurma", 
-			referencedColumnName = "id") }, 
-		inverseJoinColumns = { @JoinColumn(name = "IdAluno", 
-			referencedColumnName = "id") })
+	@ManyToMany
+	@JoinTable(name="matricula",
+			joinColumns = {@JoinColumn(name="IdTurma", referencedColumnName = "ID")},
+		    inverseJoinColumns = {@JoinColumn(name="IdAluno", referencedColumnName = "ID")})
 	private List<Aluno> listaAluno;
 	
 	public Professor getProfessor() {

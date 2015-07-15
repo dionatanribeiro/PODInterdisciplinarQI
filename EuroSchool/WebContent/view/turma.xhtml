@@ -30,14 +30,14 @@
 	               		<f:selectItems value="#{professorMB.listProfessor}" var="professor" itemLabel="#{professor.pessoa.nome}" itemValue="#{professor}"/>
 	           		</p:selectOneMenu>
 	           		
+	        		<h:outputLabel for="capacidade" value="Capacidade " />
+        			<p:spinner id="capacidade" value="#{turmaMB.capacidade}" min="0" max="9999" />
+        			        		
 	           		<p:outputLabel for="dataInicio" value="Inicio:" />
 	        		<p:calendar id="dataInicio" value="#{turmaMB.dataInicio}" pattern="dd-MM-yyyy" mask="true" />
 	        		
-	           		<p:outputLabel for="dataFim" value="Inicio:" />
+	           		<p:outputLabel for="dataFim" value="Fim:" />
 	        		<p:calendar id="dataFim" value="#{turmaMB.dataFim}" pattern="dd-MM-yyyy" mask="true" />
-	        		
-	        		<h:outputLabel for="capacidade" value="Capacidade " />
-        			<p:spinner id="capacidade" value="#{turmaMB.capacidade}" min="1" max="500" />        		
 								        
 				</h:panelGrid>
 				<p:pickList id="pickList" value="#{turmaMB.dlmAlunos}" var="dlmAlunos" 

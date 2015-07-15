@@ -1,12 +1,14 @@
 package br.edu.qi.euroschool.model.pessoas;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -28,14 +30,8 @@ public class Aluno extends AbstractEntity implements Serializable{
 	
 	private String formaPagamento;
 	
-	@OneToOne(cascade=CascadeType.ALL) 
-	@JoinTable(name="aluno_turma", 
-			   joinColumns={@JoinColumn(name="IdAluno", 
-			   	referencedColumnName="id")}, 
-			   inverseJoinColumns={@JoinColumn(name="IdTurma", 
-			   	referencedColumnName="id")})
-	@NotFound(action = NotFoundAction.IGNORE)
-	private Turma turma;
+	@ManyToMany(mappedBy="listaAluno")
+	private List<Turma> turmas;
 	
 	public Aluno(String formaPagamento) {
 		super();

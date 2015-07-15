@@ -13,16 +13,10 @@
 	 <ui:include src="templates/menu.xhtml"/>	
 	 <p:panel id="panel" header="Curso Disponíveis" style="margin-bottom:10px; width:30%">
 			<p:dataTable var="curso" value="#{cursoMB.listCurso}" emptyMessage="#{messagesMB.tabelaVazia}">
-				<p:column headerText="Tabela">
+				<p:column headerText="Nome">
 			        <h:outputText value="#{curso.descricao}" />
 			    </p:column>
-			</p:dataTable>
-			<p:dataList value="#{cursoMB.listCurso}" var="curso" type="ordered" emptyMessage="#{messagesMB.tabelaVazia}">
-		        <f:facet name="header">
-		            Básico
-		        </f:facet>
-		        #{curso.descricao}
-		    </p:dataList>
+			</p:dataTable>			
 		</p:panel>		
 </h:body>
 </html>
