@@ -53,8 +53,8 @@
             		</p:selectOneMenu>
 					
 					<p:outputLabel for="deficiencia" value="Deficiência:" />
-			        <p:selectManyMenu id="deficiencia" value="#{pessoaMB.deficienciasEscolhidas}" filter="true" filterMatchMode="contains" showCheckbox="true">
-			         	<f:selectItems value="#{deficienciaMB.listDeficiencia}" var="deficiencia" itemLabel="#{deficiencia.descricao}" itemValue="#{deficiencia}" />
+			        <p:selectManyMenu id="deficiencia" value="#{pessoaMB.deficienciasEscolhidas}" filter="true" filterMatchMode="contains" showCheckbox="true" converter="omnifaces.SelectItemsConverter">
+			         	<f:selectItems value="#{pessoaMB.deficiencias}" var="deficiencia" itemLabel="#{deficiencia.descricao}" itemValue="#{deficiencia}" />
             		</p:selectManyMenu>
             		
 				</h:panelGrid>

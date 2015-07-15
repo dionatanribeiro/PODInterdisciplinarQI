@@ -3,16 +3,12 @@ package br.edu.qi.euroschool.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
 import br.edu.qi.euroschool.dto.WeakDto;
@@ -35,23 +31,16 @@ public class Pessoa extends AbstractEntity implements Serializable {
 	@JoinColumn(name = "IdReligiao", referencedColumnName = "ID", nullable = false, unique = false)
 	private Religiao religiao;
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "IdTelefone", referencedColumnName = "ID", nullable = false, unique = false)
-//	private Telefone telefone;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IdFiliacao", referencedColumnName = "ID", nullable = false, unique = false)
 	private Filiacao filiacao;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "deficiencia_pessoa", 
-		joinColumns = { @JoinColumn(name = "IdPessoa", 
-			referencedColumnName = "id") }, 
-		inverseJoinColumns = { @JoinColumn(name = "IdDeficiencia", 
-			referencedColumnName = "id") })
-	@NotFound(action = NotFoundAction.IGNORE)
-	private List<Deficiencia> listaDeficiencia;
-
+	@ManyToMany
+    @JoinTable(name="deficiencia_pessoa", 
+	    joinColumns = {@JoinColumn(name="IdPessoa", referencedColumnName = "ID")},
+	    inverseJoinColumns = {@JoinColumn(name="IdDeficiencia", referencedColumnName = "ID")})
+    private List<Deficiencia> listaDeficiencia;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IdSexo", referencedColumnName = "ID", nullable = false, unique = false)
 	private Sexo sexo;

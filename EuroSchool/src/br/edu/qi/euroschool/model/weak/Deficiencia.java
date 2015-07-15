@@ -1,15 +1,10 @@
 package br.edu.qi.euroschool.model.weak;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
+import javax.persistence.ManyToMany;
 
 import br.edu.qi.euroschool.core.WeakModel;
 import br.edu.qi.euroschool.model.Pessoa;
@@ -21,19 +16,13 @@ public class Deficiencia extends WeakModel implements Serializable {
 
 	private String grau;
 
-	@OneToOne(cascade=CascadeType.ALL) 
-	@JoinTable(name="deficiencia_pessoa", 
-			   joinColumns={@JoinColumn(name="IdDeficiencia", 
-			   	referencedColumnName="id")}, 
-			   inverseJoinColumns={@JoinColumn(name="IdPessoa", 
-			   	referencedColumnName="id")})
-	@NotFound(action = NotFoundAction.IGNORE)
-	private Pessoa pessoa;
+	@ManyToMany(mappedBy="listaDeficiencia")
+    private List<Pessoa> pessoas;
 	
 	public Deficiencia(String descricao) {
 		super(descricao);
 	}
-
+	
 	public Deficiencia() {
 		super();
 	}
@@ -46,12 +35,12 @@ public class Deficiencia extends WeakModel implements Serializable {
 		this.grau = grau;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public List<Pessoa> getPessoas() {
+		return pessoas;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
 	}
-
+	
 }

@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 @Local
-public abstract class TemplateDao<T> {
+public abstract class TemplateDao<T extends AbstractEntity> {
 
 	EntityManagerFactory factory = null;
 	EntityManager manager;
@@ -25,9 +25,10 @@ public abstract class TemplateDao<T> {
 	
 	protected void persistEntity(T t) {
 		try {
-			getEntityManager().getTransaction().begin();    
+			getEntityManager().getTransaction().begin();
 			getEntityManager().persist(t);
-			getEntityManager().getTransaction().commit();  
+			getEntityManager().flush();
+			getEntityManager().getTransaction().commit();
 		} catch (Exception ex) {
 			System.out.println(ex);
 		} finally {

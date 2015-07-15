@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import br.edu.qi.euroschool.core.AbstractMB;
@@ -17,6 +19,7 @@ import br.edu.qi.euroschool.model.weak.Deficiencia;
 import br.edu.qi.euroschool.model.weak.Etnia;
 import br.edu.qi.euroschool.model.weak.Religiao;
 import br.edu.qi.euroschool.model.weak.Sexo;
+import br.edu.qi.euroschool.service.DeficienciaService;
 import br.edu.qi.euroschool.util.MBUtils;
 
 @ManagedBean
@@ -28,6 +31,9 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	@EJB(beanName = "PessoaBean")
 	GenericBean<Pessoa> bean;
 
+	@ManagedProperty("#{deficienciaService}")
+	private DeficienciaService service;
+	
 	private Long id;
 	private String nome;
 	private String logradouro;
@@ -35,10 +41,17 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	private String telefone;
 
 	private Religiao religiao;
+	
 	private List<Deficiencia> deficienciasEscolhidas;
+	
 	private Sexo sexo;
 	private Etnia etnia;
 	private Filiacao filiacao;
+	
+	@PostConstruct
+    public void init() {
+		service.getListaDeficiencia();
+    }
 	
 	@Override
 	public void validaCampos() {
@@ -155,5 +168,14 @@ public class PessoaMB extends AbstractMB implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
+	
+	public List<Deficiencia> getDeficiencias() {
+		return service.getListaDeficiencia();
+	}
+	
+	public void setService(DeficienciaService service) {
+		this.service = service;
+	}
+	
+	
 }
