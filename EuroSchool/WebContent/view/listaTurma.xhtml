@@ -11,12 +11,38 @@
 </h:head>
 <h:body>
 	<ui:include src="templates/menu.xhtml" />
-	<p:panel id="panel" header="Turmas" style="margin-bottom:10px; width:30%">
-		<p:dataTable var="turma" value="#{turmaMB.listTurmaTeste}" emptyMessage="#{messagesMB.tabelaVazia}">
-			<p:column headerText="Tabela">
-				<h:outputText value="Tema: #{turma.tema}" />
+	
+	<p:outputLabel for="dataInicio" value="Inicio:" />
+	<p:calendar id="dataInicio" value="#{turmaMB.dataInicioFiltro}" pattern="dd-MM-yyyy" mask="true" />
+	        		
+	<p:outputLabel for="dataFim" value="Inicio:" />
+	<p:calendar id="dataFim" value="#{turmaMB.dataFimFiltro}" pattern="dd-MM-yyyy" mask="true" />
+	
+	<p:commandButton action="#{turmaMB.getListTurmaByFiltro}" value="Buscar"/>
+	
+	<p:panel id="panel" header="Turmas encontradas"
+		style="margin-bottom:10px; width:50%">
+		<p:dataTable value="#{turmaMB.listTurmaTeste}" var="turma">
+			<p:columnGroup type="header">
+				<p:row>
+					<p:column headerText="Turma" />
+					<p:column headerText="Alunos" />
+				</p:row>
+			</p:columnGroup>
+			<p:column>
+				<ul style="list-style-type:none">
+					<li>Tema: #{turma.tema}</li>
+					<li>Professor: #{turma.professor.pessoa.nome}</li>
+					<li>Capacidade: #{turma.capacidade}</li>
+				</ul>
+			</p:column>
+			<p:column>
+				<p:dataList value="#{turma.listaAluno}" var="aluno" type="ordered" emptyMessage="#{messagesMB.tabelaVazia}">			        
+			        #{aluno.pessoa.nome}
+			    </p:dataList>
 			</p:column>
 		</p:dataTable>
+
 	</p:panel>
 </h:body>
 </html>
