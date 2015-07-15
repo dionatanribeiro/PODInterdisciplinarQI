@@ -96,9 +96,4 @@ public abstract class TemplateDao<T extends AbstractEntity> {
         return clazz;
     }
 	
-	public static void main(String[] args) {
-		EntityManagerFactory teste = Persistence.createEntityManagerFactory("EuroSchoolDB");
-		
-	}
-	
 }
