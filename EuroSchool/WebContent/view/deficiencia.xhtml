@@ -14,6 +14,8 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="descricao" value="Descrição:" />
 					<p:inputText id="descricao" required="true" value="#{deficienciaMB.descricao}"/>
+					<p:outputLabel for="grau" value="Grau:" />
+					<p:inputText id="grau" required="true" value="#{deficienciaMB.grau}"/>
 				</h:panelGrid>
 			<p:commandButton action="#{deficienciaMB.salvar}" value="Salvar" />
 			</p:panel>			      

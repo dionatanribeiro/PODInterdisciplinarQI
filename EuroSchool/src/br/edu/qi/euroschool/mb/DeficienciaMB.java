@@ -19,6 +19,7 @@ public class DeficienciaMB extends WeakMB implements Serializable {
 	GenericBean<Deficiencia> bean;
 
 	private static final long serialVersionUID = 8764298144153063175L;
+	private int grau;
 
 	@Override
 	public String salvar() {
@@ -36,5 +37,13 @@ public class DeficienciaMB extends WeakMB implements Serializable {
 	
 	public List<Deficiencia> getListDeficiencia() {
 		return bean.selectAll();
+	}
+
+	public int getGrau() {
+		return grau;
+	}
+
+	public void setGrau(int grau) {
+		this.grau = grau;
 	}
 }
