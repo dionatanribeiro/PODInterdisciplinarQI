@@ -3,17 +3,11 @@ package br.edu.qi.euroschool.model.pessoas;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 import br.edu.qi.euroschool.core.AbstractEntity;
 import br.edu.qi.euroschool.model.Pessoa;
@@ -62,20 +56,6 @@ public class Aluno extends AbstractEntity implements Serializable{
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
-	}
-	
-	@Override
-	public String toString() {
-//		return String.format("%s[id=%d]", getPessoa().getNome(), getId());
-		return getPessoa().getNome();
 	}
 
 }
