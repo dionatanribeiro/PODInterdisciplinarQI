@@ -58,4 +58,9 @@ public class Aluno extends AbstractEntity implements Serializable{
 		this.pessoa = pessoa;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("%s", getPessoa() != null ? getPessoa().getNome() : "Aluno Qualquer", getId());
+	}
+	
 }
