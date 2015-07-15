@@ -12,7 +12,7 @@ import br.edu.qi.euroschool.model.Usuario;
 
 @Stateless
 @Local
-public abstract class UsuarioBean implements GenericBean<Usuario> {
+public class UsuarioBean implements GenericBean<Usuario> {
 
 	@EJB(beanName = "UsuarioDao")
 	AbstractDao<Usuario> dao;
